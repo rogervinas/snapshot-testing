@@ -2,7 +2,7 @@
 
 # Snapshot Testing with Kotlin
 
-Snapshot testing is a test technique where first time the test is executed the output of the function being tested is saved to a file, "the snapshot", and future executions of the test will only pass if the function generates the very same output.
+Snapshot testing is a test technique where first time the test is executed the output of the function being tested is saved to a file, **the snapshot**, and future executions of the test will only pass if the function generates the very same output.
 
 This seems very popular in [the fronted community](https://jestjs.io/docs/snapshot-testing) but us backends can we use it too! 
 
