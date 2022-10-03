@@ -12,6 +12,8 @@ To configure the library just follow the [Junit5 + Gradle quickstart](https://gi
 * Add the required dependencies
 * Add the required [`src/test/resources/snapshot.properties`](src/test/resources/snapshot.properties) file. It uses by default `output-dir=src/test/java` so snapshots are generated within the source code (I suppose so you don't forget to commit them to git) but I personally use `output-dir=src/test/snapshots` so snapshots are generated in its own directory. 
 
+Let's start!
+
 * [Test a simple implementation](#test-a-simple-implementation)
   * [Use other serializers](#use-other-serializers)
   * [Use parameterized test](#use-parameterized-test)
@@ -49,7 +51,7 @@ internal class SnapshotTesting {
 }
 ```
 
-It will create a snapshot file `snapshots/org/rogervinas/MyImplTest.snap` with these contents:
+It will create a snapshot file [`src/test/snapshots/org/rogervinas/MyImplTest.snap`](src/test/snapshots/org/rogervinas/MyImplTest.snap) with these contents:
 ```text
 org.rogervinas.MyImplTest.should do something=[
 MyResult(oneInteger=7, oneDouble=25.900000000000002, oneString=aaaaaaa, oneDateTime=2022-05-03T13:46:18)
@@ -83,7 +85,7 @@ org.rogervinas.MyImplTest.should do something=[
 ]
 ```
 
-We can also use our own custom serializers just providing in the `serializer` method one of the serializer class, the serializer instance or even the serializer name configured in `snapshot.properties`.
+We can also use our own custom serializers just providing in the `serializer` method one of the serializer class, the serializer instance or even the serializer name configured in [`snapshot.properties`](src/test/resources/snapshot.properties).
 
 ### Use parameterized test
 
