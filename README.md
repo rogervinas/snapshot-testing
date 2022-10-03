@@ -146,7 +146,7 @@ fun `should do something more`(expect: Expect) {
 }
 ```
 
-First time will create the snapshot but following executions will fail because the test is not deterministic 😱
+First time will pass just creating the snapshot but following executions will fail because the test is not deterministic 😱
 
 In this case we can easily make this test deterministic why passing to `MyImpl` the `Random` and `Clock` implementations to use:
 ```kotlin
