@@ -10,7 +10,7 @@ In this PoC I will use [origin-energy/java-snapshot-testing](https://github.com/
 
 To configure the library just follow the [Junit5 + Gradle quickstart](https://github.com/origin-energy/java-snapshot-testing#quick-start-junit5--gradle-example):
 * Add the required dependencies
-* Add the required `resources/snapshot.properties` file. It uses by default `output-dir=src/test/java` so snapshots are generated within the source code (I suppose so you don't forget to commit them to git) but I personally use `output-dir=src/test/snapshots` sp snapshots are generated in its own directory. 
+* Add the required [`src/test/resources/snapshot.properties`](src/test/resources/snapshot.properties) file. It uses by default `output-dir=src/test/java` so snapshots are generated within the source code (I suppose so you don't forget to commit them to git) but I personally use `output-dir=src/test/snapshots` so snapshots are generated in its own directory. 
 
 * [Test a simple implementation](#test-a-simple-implementation)
   * [Use other serializers](#use-other-serializers)
