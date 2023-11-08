@@ -1,7 +1,7 @@
 [![CI](https://github.com/rogervinas/snapshot-testing/actions/workflows/gradle.yml/badge.svg)](https://github.com/rogervinas/snapshot-testing/actions/workflows/gradle.yml)
 ![Java](https://img.shields.io/badge/Java-21-blue?labelColor=black)
 ![Kotlin](https://img.shields.io/badge/Kotlin-1.9.20-blue?labelColor=black)
-![JavaSnapshotTesting](https://img.shields.io/badge/JavaSnaphotTesting-3.3.1-blue?labelColor=black)
+![JavaSnapshotTesting](https://img.shields.io/badge/JavaSnaphotTesting-4.0.6-blue?labelColor=black)
 
 # Snapshot Testing with Kotlin
 
@@ -44,10 +44,12 @@ We can snapshot test it this way:
 @ExtendWith(SnapshotExtension::class)
 internal class SnapshotTesting {
 
+    private lateinit var expect: Expect
+
     private val myImpl = MyImpl()
 
     @Test
-    fun `should do something`(expect: Expect) {
+    fun `should do something`() {
         val myResult = myImpl.doSomething(7)
         expect.toMatchSnapshot(myResult)
     }
@@ -68,7 +70,7 @@ And if you re-execute the test it will match against the snapshot.
 As you can see in the previous example by default this library generates snapshots using the "ToString" serializer. We can use the JSON serializer instead:
 ```kotlin
 @Test
-fun `should do something`(expect: Expect) {
+fun `should do something`() {
     val myResult = myImpl.doSomething(7)
     expect.serializer("json").toMatchSnapshot(myResult)
 }
@@ -96,7 +98,7 @@ To make this library work with parameterized tests we have to use the `scenario`
 ```kotlin
     @ParameterizedTest
     @ValueSource(ints = [1, 2, 3, 4, 5, 6, 7, 8, 9])
-    fun `should do something`(input: Int, expect: Expect) {
+    fun `should do something`(input: Int) {
         val myResult = myImpl.doSomething(input)
         expect.serializer("json").scenario("$input").toMatchSnapshot(myResult)
     }
@@ -145,7 +147,7 @@ class MyImpl {
 If we have this snapshot test:
 ```kotlin
 @Test
-fun `should do something more`(expect: Expect) {
+fun `should do something more`() {
     val myResult = myImpl.doSomethingMore()
     expect.serializer("json").toMatchSnapshot(myResult)
 }
@@ -170,13 +172,15 @@ Then we can test it deterministically:
 @ExtendWith(SnapshotExtension::class)
 internal class MyImplTest {
 
+    private lateinit var expect: Expect
+
     private val myImpl = MyImpl(
         Random(seed=1234),
         Clock.fixed(Instant.parse("2022-10-01T10:30:00.000Z"), ZoneId.of("UTC"))
     )
 
     @Test
-    fun `should do something more`(expect: Expect) {
+    fun `should do something more`() {
         val myResult = myImpl.doSomethingMore()
         expect.serializer("json").toMatchSnapshot(myResult)
     }
