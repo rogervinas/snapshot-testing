@@ -15,7 +15,7 @@ dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
-    testImplementation("io.github.origin-energy:java-snapshot-testing-junit5:3.3.1")
+    testImplementation("io.github.origin-energy:java-snapshot-testing-junit5:4.0.6")
     testImplementation("io.github.origin-energy:java-snapshot-testing-plugin-jackson:4.0.6")
     testImplementation("org.slf4j:slf4j-simple:2.0.1")
 
