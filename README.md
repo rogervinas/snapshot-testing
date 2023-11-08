@@ -1,7 +1,7 @@
 [![CI](https://github.com/rogervinas/snapshot-testing/actions/workflows/gradle.yml/badge.svg)](https://github.com/rogervinas/snapshot-testing/actions/workflows/gradle.yml)
 ![Java](https://img.shields.io/badge/Java-21-blue?labelColor=black)
 ![Kotlin](https://img.shields.io/badge/Kotlin-1.9.20-blue?labelColor=black)
-![JavaSnapshotTesting](https://img.shields.io/badge/JavaSnaphotTesting-3.3.1-blue?labelColor=black)
+![JavaSnapshotTesting](https://img.shields.io/badge/JavaSnaphotTesting-4.0.6-blue?labelColor=black)
 
 # Snapshot Testing with Kotlin
 
