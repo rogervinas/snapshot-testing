@@ -25,7 +25,7 @@ dependencies {
     testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8")
     testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 
-    testImplementation(platform("org.junit:junit-bom:5.9.0"))
+    testImplementation(platform("org.junit:junit-bom:5.10.1"))
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testImplementation("org.junit.jupiter:junit-jupiter-params")
