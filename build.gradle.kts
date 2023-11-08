@@ -4,7 +4,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
 
 plugins {
-    kotlin("jvm") version "1.7.10"
+    kotlin("jvm") version "1.9.20"
 }
 
 repositories {
@@ -31,6 +31,12 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-params")
 
     testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.25")
+}
+
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
 }
 
 tasks.withType<Test> {
