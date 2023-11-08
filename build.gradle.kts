@@ -17,7 +17,7 @@ dependencies {
 
     testImplementation("io.github.origin-energy:java-snapshot-testing-junit5:4.0.6")
     testImplementation("io.github.origin-energy:java-snapshot-testing-plugin-jackson:4.0.6")
-    testImplementation("org.slf4j:slf4j-simple:2.0.1")
+    testImplementation("org.slf4j:slf4j-simple:2.0.9")
 
     testImplementation(platform("com.fasterxml.jackson:jackson-bom:2.15.3"))
     testImplementation("com.fasterxml.jackson.core:jackson-core")
