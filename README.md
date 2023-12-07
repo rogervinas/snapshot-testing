@@ -7,7 +7,7 @@
 
 Snapshot testing is a test technique where first time the test is executed the output of the function being tested is saved to a file, **the snapshot**, and future executions of the test will only pass if the function generates the very same output.
 
-This seems very popular in [the fronted community](https://jestjs.io/docs/snapshot-testing) but us backends we can use it too! 
+This seems very popular in [the frontend community](https://jestjs.io/docs/snapshot-testing) but us backends we can use it too! 
 
 In this PoC I will use [origin-energy/java-snapshot-testing](https://github.com/origin-energy/java-snapshot-testing) and as stated in ["the testing framework loved by lazy productive devs"](https://github.com/origin-energy/java-snapshot-testing#the-testing-framework-loved-by-lazy-productive-devs) I use it whenever I find myself manually saving test expectations as text files 😅
 
