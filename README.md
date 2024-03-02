@@ -26,7 +26,7 @@ Let's start!
 
 ## Implementation to test
 
-Imagine that we have to test this simple `MyImpl`:
+Imagine that we have to test this simple [`MyImpl`](src/main/kotlin/org/rogervinas/MyImpl.kt):
 
 ```kotlin
 class MyImpl {
@@ -82,7 +82,7 @@ class MyImpl(
 }
 ```
 
-So we can create instances of `MyImpl` for testing that will return deterministic results:
+So we can create instances of [`MyImpl`](src/main/kotlin/org/rogervinas/MyImpl.kt) for testing that will return deterministic results:
 
 ```kotlin
 myImplUnderTest = MyImpl(
@@ -109,7 +109,7 @@ To configure the library just follow the [Junit5 + Gradle quickstart](https://gi
 * Add required dependencies
 * Add required [`src/test/resources/snapshot.properties`](src/test/resources/snapshot.properties) file. It uses by default `output-dir=src/test/java` so snapshots are generated within the source code (I suppose so we don't forget to commit them to git) but I personally use `output-dir=src/test/snapshots` so snapshots are generated in its own directory
 
-We can write our first snapshot test [MyImplTestWithJavaSnapshot](src/test/kotlin/org/rogervinas/MyImplTestWithJavaSnapshot.kt):
+We can write our first snapshot test [`MyImplTestWithJavaSnapshot`](src/test/kotlin/org/rogervinas/MyImplTestWithJavaSnapshot.kt):
 
 ```kotlin
 @ExtendWith(SnapshotExtension::class)
@@ -207,7 +207,7 @@ org.rogervinas.MyImplTestWithJavaSnapshot.should do something[9]=[
 
 To configure the library follow [Installation](https://selfie.dev/jvm/get-started#installation) and [Quickstart](https://selfie.dev/jvm/get-started#quickstart) guides and just add required dependencies with no extra configuration.
 
-We can create our first snapshot test [MyImplTestWithSelfie](src/test/kotlin/org/rogervinas/MyImplTestWithSelfie.kt):
+We can create our first snapshot test [`MyImplTestWithSelfie`](src/test/kotlin/org/rogervinas/MyImplTestWithSelfie.kt):
 
 ```kotlin
 internal class MyImplTestWithSelfie {
