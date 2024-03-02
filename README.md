@@ -22,7 +22,7 @@ Let's start!
   * [Parameterized tests](#parameterized-tests)
 * [Use diffplug/selfie](#use-diffplugselfie)
   * [Serialize to JSON](#serialize-to-json-1)
-  * [[Parameterized tests](#parameterized-tests-1)
+  * [Parameterized tests](#parameterized-tests-1)
 
 ## Implementation to test
 
