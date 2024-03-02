@@ -103,7 +103,7 @@ myImpl = MyImpl(
 )
 ```
 
-## Using [java-snapshot-testing](https://github.com/origin-energy/java-snapshot-testing)
+## Using [Java Snapshot Testing](https://github.com/origin-energy/java-snapshot-testing)
 
 To configure the library just follow the [Junit5 + Gradle quickstart](https://github.com/origin-energy/java-snapshot-testing#quick-start-junit5--gradle-example) guide:
 * Add required dependencies
@@ -203,7 +203,7 @@ org.rogervinas.MyImplTestWithJavaSnapshot.should do something[9]=[
 ]
 ```
 
-## Using selfie
+## Using [Selfie](https://github.com/diffplug/selfie)
 
 To configure the library follow [Installation](https://selfie.dev/jvm/get-started#installation) and [Quickstart](https://selfie.dev/jvm/get-started#quickstart) guides and just add required dependencies with no extra configuration.
 
