@@ -199,7 +199,9 @@ org.rogervinas.MyImplTest.should do something[9]=[
 
 ## Use diffplug/selfie
 
-To configure the library follow [Installation](https://selfie.dev/jvm/get-started#installation) and [Quickstart](https://selfie.dev/jvm/get-started#quickstart) guides and just add required dependencies with no needed configuration and we can create our first snapshot test [MyImplTestWithSelfie](src/test/kotlin/org/rogervinas/MyImplTestWithSelfie.kt):
+To configure the library follow [Installation](https://selfie.dev/jvm/get-started#installation) and [Quickstart](https://selfie.dev/jvm/get-started#quickstart) guides and just add required dependencies with no extra configuration.
+
+We can create our first snapshot test [MyImplTestWithSelfie](src/test/kotlin/org/rogervinas/MyImplTestWithSelfie.kt):
 
 ```kotlin
 internal class MyImplTestWithSelfie {
