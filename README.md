@@ -17,10 +17,10 @@ In this PoC we will use two different snapshot testing libraries JVM compatible:
 Let's start!
 
 * [Implementation to test](#implementation-to-test) - test results should be deterministic!
-* [Using java-snapshot-testing](#using-java-snapshot-testing)
+* [Using Java Snapshot Testing](#using-java-snapshot-testing)
   * [Serialize to JSON](#serialize-to-json)
   * [Parameterized tests](#parameterized-tests)
-* [Using selfie](#using-selfie)
+* [Using Selfie](#using-selfie)
   * [Serialize to JSON](#serialize-to-json-1)
   * [Parameterized tests](#parameterized-tests-1)
 
