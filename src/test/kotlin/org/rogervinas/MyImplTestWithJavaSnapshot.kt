@@ -12,7 +12,7 @@ import java.time.ZoneId
 import kotlin.random.Random
 
 @ExtendWith(SnapshotExtension::class)
-internal class MyImplTest {
+internal class MyImplTestWithJavaSnapshot {
 
     private lateinit var expect: Expect
 
