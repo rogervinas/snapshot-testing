@@ -15,7 +15,7 @@ import kotlin.random.Random
 
 internal class MyImplTestWithSelfie {
     private val myImpl = MyImpl(
-        Random(seed=1234),
+        Random(seed = 1234),
         Clock.fixed(Instant.parse("2022-10-01T10:30:00.000Z"), ZoneId.of("UTC"))
     )
 
@@ -23,7 +23,7 @@ internal class MyImplTestWithSelfie {
     @ValueSource(ints = [1, 2, 3, 4, 5, 6, 7, 8, 9])
     fun `should do something`(input: Int) {
         val myResult = myImpl.doSomething(input)
-        Selfie.expectSelfie(myResult, selfieCamera).toMatchDisk("$input")
+        Selfie.expectSelfie(myResult.toString()).toMatchDisk("$input")
     }
 
     @Test

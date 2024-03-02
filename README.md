@@ -13,7 +13,13 @@ In this PoC I will use [origin-energy/java-snapshot-testing](https://github.com/
 
 To configure the library just follow the [Junit5 + Gradle quickstart](https://github.com/origin-energy/java-snapshot-testing#quick-start-junit5--gradle-example):
 * Add the required dependencies
-* Add the required [`src/test/resources/snapshot.properties`](src/test/resources/snapshot.properties) file. It uses by default `output-dir=src/test/java` so snapshots are generated within the source code (I suppose so you don't forget to commit them to git) but I personally use `output-dir=src/test/snapshots` so snapshots are generated in its own directory. 
+* Add the required [`src/test/resources/snapshot.properties`](src/test/resources/snapshot.properties) file. It uses by default `output-dir=src/test/java` so snapshots are generated within the source code (I suppose so you don't forget to commit them to git) but I personally use `output-dir=src/test/snapshots` so snapshots are generated in its own directory.
+
+We can use another snapshot testing library [diffplug/selfie](https://github.com/diffplug/selfie), its main features are:
+* It can do snapshots on disk or as [inline literals](https://selfie.dev/jvm#literal)
+* It garbage-collects unused disk snapshots [automatically](https://github.com/diffplug/selfie/blob/main/selfie-runner-junit5/src/main/kotlin/com/diffplug/selfie/junit5/SelfieGC.kt)
+* You don't need to manipulate snapshot files manually to [control read/write](https://selfie.dev/jvm/get-started#quickstart)
+* You can snapshot multiple facets of an entity, and then assert some on disk and others online to [tell a story](https://selfie.dev/jvm/advanced#harmonizing-disk-and-inline-literals)
 
 Let's start!
 
@@ -21,6 +27,8 @@ Let's start!
   * [Use other serializers](#use-other-serializers)
   * [Use parameterized test](#use-parameterized-test)
 * [Tests should be deterministic](#tests-should-be-deterministic)
+* [Alternative snapshot testing libraries](#alternative-snapshot-testing-libraries):
+  * [Use diffplug/selfie](#use-diffplugselfie)
 
 ## Test a simple implementation
 
@@ -42,7 +50,7 @@ class MyImpl {
 We can snapshot test it this way:
 ```kotlin
 @ExtendWith(SnapshotExtension::class)
-internal class SnapshotTesting {
+internal class MyImplTest {
 
     private lateinit var expect: Expect
 
@@ -96,12 +104,12 @@ We can also use our own custom serializers just providing in the `serializer` me
 
 To make this library work with parameterized tests we have to use the `scenario` method:
 ```kotlin
-    @ParameterizedTest
-    @ValueSource(ints = [1, 2, 3, 4, 5, 6, 7, 8, 9])
-    fun `should do something`(input: Int) {
-        val myResult = myImpl.doSomething(input)
-        expect.serializer("json").scenario("$input").toMatchSnapshot(myResult)
-    }
+@ParameterizedTest
+@ValueSource(ints = [1, 2, 3, 4, 5, 6, 7, 8, 9])
+fun `should do something`(input: Int) {
+    val myResult = myImpl.doSomething(input)
+    expect.serializer("json").scenario("$input").toMatchSnapshot(myResult)
+}
 ```
 
 This way each execution has its own snapshot expectation:
@@ -205,6 +213,51 @@ fun main() {
     val myImpl = MyImpl(Random.Default, Clock.systemDefaultZone())
     println("myImpl.doSomething(3) = ${myImpl.doSomething(3)}")
     println("myImpl.doSomethingMore = ${myImpl.doSomethingMore()}")
+}
+```
+
+## Alternative snapshot testing libraries
+
+### Use diffplug/selfie
+
+Following [selfie's quickstart](https://selfie.dev/jvm/get-started#quickstart) we can create [MyImplTestWithSelfie](src/test/kotlin/org/rogervinas/MyImplTestWithSelfie.kt) and just match snapshots using `.toString()`:
+
+```kotlin
+internal class MyImplTestWithSelfie {
+    @Test
+    fun `should do something`() {
+        val myResult = myImpl.doSomething(7)
+        Selfie.expectSelfie(myResult.toString()).toMatchDisk()
+    }
+}
+```
+
+Snapshots will be saved in [MyImplTestWithSelfie.ss](src/test/kotlin/org/rogervinas/MyImplTestWithSelfie.ss) in the same directory as the test class.
+
+If we want to serialize to **JSON** we can customize a `Camera` this way:
+
+```kotlin
+@Test
+fun `should do something`() {
+    val myResult = myImpl.doSomething(7)
+    Selfie.expectSelfie(myResult, selfieCamera).toMatchDisk()
+}
+
+private val selfieCamera = Camera<Any> { actual ->
+    val mapper = ObjectMapper()
+    mapper.findAndRegisterModules()
+    Snapshot.of(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(actual))
+}
+```
+
+And we can use parameterized tests passing a value to identify each match:
+
+```kotlin
+@ParameterizedTest
+@ValueSource(ints = [1, 2, 3, 4, 5, 6, 7, 8, 9])
+fun `should do something`(input: Int) {
+    val myResult = myImpl.doSomething(input)
+    Selfie.expectSelfie(myResult.toString()).toMatchDisk("$input")
 }
 ```
 
