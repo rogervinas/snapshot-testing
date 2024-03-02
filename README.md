@@ -94,7 +94,7 @@ myImplUnderTest = MyImpl(
 )
 ```
 
-And create instances of `MyImpl` for production:
+And create instances of [`MyImpl`](src/main/kotlin/org/rogervinas/MyImpl.kt) for production:
 
 ```kotlin
 myImpl = MyImpl(
