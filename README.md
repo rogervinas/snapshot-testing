@@ -6,7 +6,7 @@
 
 # Snapshot Testing with Kotlin
 
-Snapshot testing is a test technique where first time the test is executed the output of the function being tested is saved to a file, **the snapshot**, and future executions of the test will only pass if the function generates the very same output.
+Snapshot testing is a test technique where first time the test is executed the output of the function being tested is saved to a file, **the snapshot**, and future executions of the test will only pass if the function generates the very same output
 
 This seems very popular in [the frontend community](https://jestjs.io/docs/snapshot-testing) but us backends we can use it too! I use it whenever I find myself manually saving test expectations as text files 😅
 
@@ -205,7 +205,7 @@ org.rogervinas.MyImplTestWithJavaSnapshot.should do something[9]=[
 
 ## Using [Selfie](https://github.com/diffplug/selfie)
 
-To configure the library follow [Installation](https://selfie.dev/jvm/get-started#installation) and [Quickstart](https://selfie.dev/jvm/get-started#quickstart) guides and just add required dependencies with no extra configuration.
+To configure the library follow [Installation](https://selfie.dev/jvm/get-started#installation) and [Quickstart](https://selfie.dev/jvm/get-started#quickstart) guides and just add required dependencies with no extra configuration
 
 We can create our first snapshot test [`MyImplTestWithSelfie`](src/test/kotlin/org/rogervinas/MyImplTestWithSelfie.kt):
 
