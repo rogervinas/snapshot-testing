@@ -11,8 +11,8 @@ Snapshot testing is a test technique where first time the test is executed the o
 This seems very popular in [the frontend community](https://jestjs.io/docs/snapshot-testing) but us backends we can use it too! I use it whenever I find myself manually saving test expectations as text files 😅
 
 In this PoC we will use two different snapshot testing libraries JVM compatible:
-1. [**java-snapshot-testing**](https://github.com/origin-energy/java-snapshot-testing) - [loved by lazy productive devs!](https://github.com/origin-energy/java-snapshot-testing#the-testing-framework-loved-by-lazy-productive-devs)
-2. [**selfie**](https://github.com/diffplug/selfie) - [are you still writing assertions by hand?](https://thecontextwindow.ai/p/temporarily-embarrassed-snapshots)
+1. [**Java Snapshot Testing**](https://github.com/origin-energy/java-snapshot-testing) - [loved by lazy productive devs!](https://github.com/origin-energy/java-snapshot-testing#the-testing-framework-loved-by-lazy-productive-devs)
+2. [**Selfie**](https://github.com/diffplug/selfie) - [are you still writing assertions by hand?](https://thecontextwindow.ai/p/temporarily-embarrassed-snapshots)
 
 Let's start!
 
