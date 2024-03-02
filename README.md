@@ -11,16 +11,16 @@ Snapshot testing is a test technique where first time the test is executed the o
 This seems very popular in [the frontend community](https://jestjs.io/docs/snapshot-testing) but us backends we can use it too! I use it whenever I find myself manually saving test expectations as text files 😅
 
 In this PoC we will use two different snapshot testing libraries JVM compatible:
-1. [origin-energy/java-snapshot-testing](https://github.com/origin-energy/java-snapshot-testing) - [the testing framework loved by lazy productive devs!](https://github.com/origin-energy/java-snapshot-testing#the-testing-framework-loved-by-lazy-productive-devs)
-2. [diffplug/selfie](https://github.com/diffplug/selfie) - [are you still writing assertions by hand?](https://thecontextwindow.ai/p/temporarily-embarrassed-snapshots)
+1. [**java-snapshot-testing**](https://github.com/origin-energy/java-snapshot-testing) - [loved by lazy productive devs!](https://github.com/origin-energy/java-snapshot-testing#the-testing-framework-loved-by-lazy-productive-devs)
+2. [**selfie**](https://github.com/diffplug/selfie) - [are you still writing assertions by hand?](https://thecontextwindow.ai/p/temporarily-embarrassed-snapshots)
 
 Let's start!
 
 * [Implementation to test](#implementation-to-test) - test results should be deterministic!
-* [Use origin-energy/java-snapshot-testing](#use-origin-energyjava-snapshot-testing)
+* [Using java-snapshot-testing](#using-java-snapshot-testing)
   * [Serialize to JSON](#serialize-to-json)
   * [Parameterized tests](#parameterized-tests)
-* [Use diffplug/selfie](#use-diffplugselfie)
+* [Using selfie](#using-selfie)
   * [Serialize to JSON](#serialize-to-json-1)
   * [Parameterized tests](#parameterized-tests-1)
 
@@ -66,7 +66,10 @@ Notice that:
 So first we need to change `doSomethingMore` implementation a little bit:
 
 ```kotlin
-class MyImpl(private val random: Random, private val clock: Clock) {
+class MyImpl(
+  private val random: Random,
+  private val clock: Clock
+) {
     
   fun doSomething() { }
   
@@ -84,7 +87,10 @@ So we can create instances of `MyImpl` for testing that will return deterministi
 ```kotlin
 myImplUnderTest = MyImpl(
   random = Random(seed=1234),
-  clock = Clock.fixed(Instant.parse("2022-10-01T10:30:00.000Z"), ZoneId.of("UTC"))
+  clock = Clock.fixed(
+    Instant.parse("2022-10-01T10:30:00.000Z"),
+    ZoneId.of("UTC")
+  )
 )
 ```
 
@@ -97,17 +103,17 @@ myImpl = MyImpl(
 )
 ```
 
-## Use [origin-energy/java-snapshot-testing](https://github.com/origin-energy/java-snapshot-testing)
+## Using [java-snapshot-testing](https://github.com/origin-energy/java-snapshot-testing)
 
 To configure the library just follow the [Junit5 + Gradle quickstart](https://github.com/origin-energy/java-snapshot-testing#quick-start-junit5--gradle-example) guide:
 * Add required dependencies
 * Add required [`src/test/resources/snapshot.properties`](src/test/resources/snapshot.properties) file. It uses by default `output-dir=src/test/java` so snapshots are generated within the source code (I suppose so we don't forget to commit them to git) but I personally use `output-dir=src/test/snapshots` so snapshots are generated in its own directory
 
-We can write our first snapshot test [MyImplTest](src/test/kotlin/org/rogervinas/MyImplTest.kt):
+We can write our first snapshot test [MyImplTestWithJavaSnapshot](src/test/kotlin/org/rogervinas/MyImplTestWithJavaSnapshot.kt):
 
 ```kotlin
 @ExtendWith(SnapshotExtension::class)
-internal class MyImplTest {
+internal class MyImplTestWithJavaSnapshot {
 
   private lateinit var expect: Expect
 
@@ -121,10 +127,10 @@ internal class MyImplTest {
 }
 ```
 
-It will create a snapshot file [`src/test/snapshots/org/rogervinas/MyImplTest.snap`](src/test/snapshots/org/rogervinas/MyImplTest.snap) with these contents:
+It will create a snapshot file [`MyImplTestWithJavaSnapshot.snap`](src/test/snapshots/org/rogervinas/MyImplTestWithJavaSnapshot.snap) with these contents:
 
 ```text
-org.rogervinas.MyImplTest.should do something=[
+org.rogervinas.MyImplTestWithJavaSnapshot.should do something=[
 MyResult(oneInteger=7, oneDouble=25.900000000000002, oneString=aaaaaaa, oneDateTime=2022-05-03T13:46:18)
 ]
 ```
@@ -148,7 +154,7 @@ Don't forget to add the required `com.fasterxml.jackson.core` dependencies and t
 Then the new snapshot file will look like:
 
 ```text
-org.rogervinas.MyImplTest.should do something=[
+org.rogervinas.MyImplTestWithJavaSnapshot.should do something=[
   {
     "oneInteger": 7,
     "oneDouble": 25.900000000000002,
@@ -176,7 +182,7 @@ fun `should do something`(input: Int) {
 This way each execution has its own snapshot expectation:
 
 ```text
-org.rogervinas.MyImplTest.should do something[1]=[
+org.rogervinas.MyImplTestWithJavaSnapshot.should do something[1]=[
   {
     "oneInteger": 1,
     "oneDouble": 3.7,
@@ -187,7 +193,7 @@ org.rogervinas.MyImplTest.should do something[1]=[
 
 ...
 
-org.rogervinas.MyImplTest.should do something[9]=[
+org.rogervinas.MyImplTestWithJavaSnapshot.should do something[9]=[
   {
     "oneInteger": 9,
     "oneDouble": 33.300000000000004,
@@ -197,7 +203,7 @@ org.rogervinas.MyImplTest.should do something[9]=[
 ]
 ```
 
-## Use diffplug/selfie
+## Using selfie
 
 To configure the library follow [Installation](https://selfie.dev/jvm/get-started#installation) and [Quickstart](https://selfie.dev/jvm/get-started#quickstart) guides and just add required dependencies with no extra configuration.
 
@@ -213,7 +219,7 @@ internal class MyImplTestWithSelfie {
 }
 ```
 
-It will create a snapshot file [`src/test/kotlin/org/rogervinas/MyImplTestWithSelfie.ss`](src/test/kotlin/org/rogervinas/MyImplTestWithSelfie.ss) with these contents:
+It will create a snapshot file [`MyImplTestWithSelfie.ss`](src/test/kotlin/org/rogervinas/MyImplTestWithSelfie.ss) with these contents:
 
 ```text
 ╔═ should do something ═╗

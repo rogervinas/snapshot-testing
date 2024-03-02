@@ -1,4 +1,4 @@
-org.rogervinas.MyImplTest.should do something more=[
+org.rogervinas.MyImplTestWithJavaSnapshot.should do something more=[
   {
     "oneInteger": 345130239,
     "oneDouble": 0.6887620080485805,
@@ -8,7 +8,7 @@ org.rogervinas.MyImplTest.should do something more=[
 ]
 
 
-org.rogervinas.MyImplTest.should do something[1]=[
+org.rogervinas.MyImplTestWithJavaSnapshot.should do something[1]=[
   {
     "oneInteger": 1,
     "oneDouble": 3.7,
@@ -18,7 +18,7 @@ org.rogervinas.MyImplTest.should do something[1]=[
 ]
 
 
-org.rogervinas.MyImplTest.should do something[2]=[
+org.rogervinas.MyImplTestWithJavaSnapshot.should do something[2]=[
   {
     "oneInteger": 2,
     "oneDouble": 7.4,
@@ -28,7 +28,7 @@ org.rogervinas.MyImplTest.should do something[2]=[
 ]
 
 
-org.rogervinas.MyImplTest.should do something[3]=[
+org.rogervinas.MyImplTestWithJavaSnapshot.should do something[3]=[
   {
     "oneInteger": 3,
     "oneDouble": 11.100000000000001,
@@ -38,7 +38,7 @@ org.rogervinas.MyImplTest.should do something[3]=[
 ]
 
 
-org.rogervinas.MyImplTest.should do something[4]=[
+org.rogervinas.MyImplTestWithJavaSnapshot.should do something[4]=[
   {
     "oneInteger": 4,
     "oneDouble": 14.8,
@@ -48,7 +48,7 @@ org.rogervinas.MyImplTest.should do something[4]=[
 ]
 
 
-org.rogervinas.MyImplTest.should do something[5]=[
+org.rogervinas.MyImplTestWithJavaSnapshot.should do something[5]=[
   {
     "oneInteger": 5,
     "oneDouble": 18.5,
@@ -58,7 +58,7 @@ org.rogervinas.MyImplTest.should do something[5]=[
 ]
 
 
-org.rogervinas.MyImplTest.should do something[6]=[
+org.rogervinas.MyImplTestWithJavaSnapshot.should do something[6]=[
   {
     "oneInteger": 6,
     "oneDouble": 22.200000000000003,
@@ -68,7 +68,7 @@ org.rogervinas.MyImplTest.should do something[6]=[
 ]
 
 
-org.rogervinas.MyImplTest.should do something[7]=[
+org.rogervinas.MyImplTestWithJavaSnapshot.should do something[7]=[
   {
     "oneInteger": 7,
     "oneDouble": 25.900000000000002,
@@ -78,7 +78,7 @@ org.rogervinas.MyImplTest.should do something[7]=[
 ]
 
 
-org.rogervinas.MyImplTest.should do something[8]=[
+org.rogervinas.MyImplTestWithJavaSnapshot.should do something[8]=[
   {
     "oneInteger": 8,
     "oneDouble": 29.6,
@@ -88,7 +88,7 @@ org.rogervinas.MyImplTest.should do something[8]=[
 ]
 
 
-org.rogervinas.MyImplTest.should do something[9]=[
+org.rogervinas.MyImplTestWithJavaSnapshot.should do something[9]=[
   {
     "oneInteger": 9,
     "oneDouble": 33.300000000000004,
