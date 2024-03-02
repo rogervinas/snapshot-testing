@@ -11,20 +11,31 @@ repositories {
     mavenCentral()
 }
 
+val javaSnapshotTestingVersion = "4.0.7"
+
 dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
+    // com.diffplug.selfie:selfie
+    
     testImplementation("com.diffplug.selfie:selfie-runner-junit5:1.1.0")
-    testImplementation("org.slf4j:slf4j-simple:2.0.11")
+    
+    // io.github.origin-energy:java-snapshot-testing
+    
+    testImplementation("io.github.origin-energy:java-snapshot-testing-junit5:$javaSnapshotTestingVersion")
+    testImplementation("io.github.origin-energy:java-snapshot-testing-plugin-jackson:$javaSnapshotTestingVersion")
+    testImplementation("org.slf4j:slf4j-simple:2.0.12")
 
     testImplementation(platform("com.fasterxml.jackson:jackson-bom:2.16.1"))
     testImplementation("com.fasterxml.jackson.core:jackson-core")
     testImplementation("com.fasterxml.jackson.core:jackson-databind")
     testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8")
     testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+    
+    // common
 
-    testImplementation(platform("org.junit:junit-bom:5.10.1"))
+    testImplementation(platform("org.junit:junit-bom:5.10.2"))
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testImplementation("org.junit.jupiter:junit-jupiter-params")
