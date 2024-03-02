@@ -2,6 +2,7 @@
 ![Java](https://img.shields.io/badge/Java-21-blue?labelColor=black)
 ![Kotlin](https://img.shields.io/badge/Kotlin-1.9.22-blue?labelColor=black)
 ![JavaSnapshotTesting](https://img.shields.io/badge/JavaSnaphotTesting-4.0.7-blue?labelColor=black)
+![Selfie](https://img.shields.io/badge/Selfie-1.1.0-blue?labelColor=black)
 
 # Snapshot Testing with Kotlin
 
@@ -15,7 +16,7 @@ To configure the library just follow the [Junit5 + Gradle quickstart](https://gi
 * Add the required dependencies
 * Add the required [`src/test/resources/snapshot.properties`](src/test/resources/snapshot.properties) file. It uses by default `output-dir=src/test/java` so snapshots are generated within the source code (I suppose so you don't forget to commit them to git) but I personally use `output-dir=src/test/snapshots` so snapshots are generated in its own directory.
 
-We can use another snapshot testing library [diffplug/selfie](https://github.com/diffplug/selfie), its main features are:
+Alternatively we will also use another snapshot testing library [diffplug/selfie](https://github.com/diffplug/selfie), its main features are:
 * It can do snapshots on disk or as [inline literals](https://selfie.dev/jvm#literal)
 * It garbage-collects unused disk snapshots [automatically](https://github.com/diffplug/selfie/blob/main/selfie-runner-junit5/src/main/kotlin/com/diffplug/selfie/junit5/SelfieGC.kt)
 * You don't need to manipulate snapshot files manually to [control read/write](https://selfie.dev/jvm/get-started#quickstart)
