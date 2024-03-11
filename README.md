@@ -214,7 +214,7 @@ internal class MyImplTestWithSelfie {
   @Test
   fun `should do something`() {
     val myResult = myImpl.doSomething(7)
-    Selfie.expectSelfie(myResult).toMatchDisk()
+    Selfie.expectSelfie(myResult.toString()).toMatchDisk()
   }
 }
 ```
