@@ -274,8 +274,8 @@ We can use parameterized tests passing a value to identify each match:
 @ParameterizedTest
 @ValueSource(ints = [1, 2, 3, 4, 5, 6, 7, 8, 9])
 fun `should do something`(input: Int) {
-    val myResult = myImpl.doSomething(input)
-    Selfie.expectSelfie(myResult.toString()).toMatchDisk("$input")
+  val myResult = myImpl.doSomething(input)
+  Selfie.expectSelfie(myResult, selfieCamera).toMatchDisk("$input")
 }
 ```
 
@@ -283,12 +283,22 @@ Then snapshots will be saved this way:
 
 ```text
 ╔═ should do something/1 ═╗
-MyResult(oneInteger=1, oneDouble=3.7, oneString=a, oneDateTime=2022-05-03T13:46:18)
+{
+  "oneInteger" : 1,
+  "oneDouble" : 3.7,
+  "oneString" : "a",
+  "oneDateTime" : [ 2022, 5, 3, 13, 46, 18 ]
+}
 
 ...
 
 ╔═ should do something/9 ═╗
-MyResult(oneInteger=9, oneDouble=33.300000000000004, oneString=aaaaaaaaa, oneDateTime=2022-05-03T13:46:18)
+{
+  "oneInteger" : 9,
+  "oneDouble" : 33.300000000000004,
+  "oneString" : "aaaaaaaaa",
+  "oneDateTime" : [ 2022, 5, 3, 13, 46, 18 ]
+}
 ```
 
 Thanks and happy coding! 💙
