@@ -11,7 +11,7 @@ repositories {
     mavenCentral()
 }
 
-val javaSnapshotTestingVersion = "4.0.7"
+val javaSnapshotTestingVersion = "4.0.8"
 val selfieVersion = "2.0.2"
 
 dependencies {
