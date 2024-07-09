@@ -29,7 +29,7 @@ dependencies {
   testImplementation("io.github.origin-energy:java-snapshot-testing-plugin-jackson:$javaSnapshotTestingVersion")
   testImplementation("org.slf4j:slf4j-simple:2.0.13")
 
-  testImplementation(platform("com.fasterxml.jackson:jackson-bom:2.17.1"))
+  testImplementation(platform("com.fasterxml.jackson:jackson-bom:2.17.2"))
   testImplementation("com.fasterxml.jackson.core:jackson-core")
   testImplementation("com.fasterxml.jackson.core:jackson-databind")
   testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8")
