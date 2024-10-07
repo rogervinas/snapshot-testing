@@ -13,7 +13,7 @@ repositories {
 }
 
 val javaSnapshotTestingVersion = "4.0.8"
-val selfieVersion = "2.3.0"
+val selfieVersion = "2.4.0"
 
 dependencies {
   implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
@@ -37,7 +37,7 @@ dependencies {
 
   // common
 
-  testImplementation(platform("org.junit:junit-bom:5.11.1"))
+  testImplementation(platform("org.junit:junit-bom:5.11.2"))
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
   testImplementation("org.junit.jupiter:junit-jupiter-api")
   testImplementation("org.junit.jupiter:junit-jupiter-params")
