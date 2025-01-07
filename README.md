@@ -2,7 +2,7 @@
 ![Java](https://img.shields.io/badge/Java-21-blue?labelColor=black)
 ![Kotlin](https://img.shields.io/badge/Kotlin-2.x-blue?labelColor=black)
 ![JavaSnapshotTesting](https://img.shields.io/badge/JavaSnaphotTesting-4.0.8-blue?labelColor=black)
-![Selfie](https://img.shields.io/badge/Selfie-2.4.1-blue?labelColor=black)
+![Selfie](https://img.shields.io/badge/Selfie-2.4.2-blue?labelColor=black)
 
 # Snapshot Testing with Kotlin
 
