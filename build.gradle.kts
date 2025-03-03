@@ -5,7 +5,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
 
 plugins {
   kotlin("jvm") version "2.1.10"
-  id("org.jlleitschuh.gradle.ktlint") version "12.1.2"
+  id("org.jlleitschuh.gradle.ktlint") version "12.2.0"
 }
 
 repositories {
@@ -27,9 +27,9 @@ dependencies {
 
   testImplementation("io.github.origin-energy:java-snapshot-testing-junit5:$javaSnapshotTestingVersion")
   testImplementation("io.github.origin-energy:java-snapshot-testing-plugin-jackson:$javaSnapshotTestingVersion")
-  testImplementation("org.slf4j:slf4j-simple:2.0.16")
+  testImplementation("org.slf4j:slf4j-simple:2.0.17")
 
-  testImplementation(platform("com.fasterxml.jackson:jackson-bom:2.18.2"))
+  testImplementation(platform("com.fasterxml.jackson:jackson-bom:2.18.3"))
   testImplementation("com.fasterxml.jackson.core:jackson-core")
   testImplementation("com.fasterxml.jackson.core:jackson-databind")
   testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8")
