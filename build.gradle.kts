@@ -13,7 +13,7 @@ repositories {
 }
 
 val javaSnapshotTestingVersion = "4.0.8"
-val selfieVersion = "2.5.0"
+val selfieVersion = "2.5.1"
 
 dependencies {
   implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
