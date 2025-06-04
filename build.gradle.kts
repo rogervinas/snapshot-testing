@@ -37,7 +37,7 @@ dependencies {
 
   // common
 
-  testImplementation(platform("org.junit:junit-bom:5.12.2"))
+  testImplementation(platform("org.junit:junit-bom:5.13.0"))
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
   testImplementation("org.junit.jupiter:junit-jupiter-api")
   testImplementation("org.junit.jupiter:junit-jupiter-params")
