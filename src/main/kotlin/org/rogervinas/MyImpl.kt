@@ -13,7 +13,10 @@ data class MyResult(
   val oneDateTime: LocalDateTime,
 )
 
-class MyImpl(private val random: Random, private val clock: Clock) {
+class MyImpl(
+  private val random: Random,
+  private val clock: Clock,
+) {
   fun doSomething(input: Int) =
     MyResult(
       oneInteger = input,
