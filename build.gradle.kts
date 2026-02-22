@@ -4,7 +4,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
 
 plugins {
-  kotlin("jvm") version "2.3.0"
+  kotlin("jvm") version "2.3.10"
   id("org.jlleitschuh.gradle.ktlint") version "14.0.1"
 }
 
@@ -37,7 +37,7 @@ dependencies {
 
   // common
 
-  testImplementation(platform("org.junit:junit-bom:6.0.2"))
+  testImplementation(platform("org.junit:junit-bom:6.0.3"))
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
   testImplementation("org.junit.jupiter:junit-jupiter-api")
   testImplementation("org.junit.jupiter:junit-jupiter-params")
