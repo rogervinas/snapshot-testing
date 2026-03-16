@@ -4,8 +4,8 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
 
 plugins {
-  kotlin("jvm") version "2.3.10"
-  id("org.jlleitschuh.gradle.ktlint") version "14.0.1"
+  kotlin("jvm") version "2.3.20"
+  id("org.jlleitschuh.gradle.ktlint") version "14.2.0"
 }
 
 repositories {
@@ -13,7 +13,7 @@ repositories {
 }
 
 val javaSnapshotTestingVersion = "4.0.8"
-val selfieVersion = "2.5.5"
+val selfieVersion = "3.0.0"
 
 dependencies {
   implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
