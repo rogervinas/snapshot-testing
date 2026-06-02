@@ -13,7 +13,7 @@ repositories {
 }
 
 val javaSnapshotTestingVersion = "4.0.8"
-val selfieVersion = "3.1.0"
+val selfieVersion = "3.1.1"
 
 dependencies {
   implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
@@ -29,7 +29,7 @@ dependencies {
   testImplementation("io.github.origin-energy:java-snapshot-testing-plugin-jackson:$javaSnapshotTestingVersion")
   testImplementation("org.slf4j:slf4j-simple:2.0.18")
 
-  testImplementation(platform("com.fasterxml.jackson:jackson-bom:2.21.3"))
+  testImplementation(platform("com.fasterxml.jackson:jackson-bom:2.22.0"))
   testImplementation("com.fasterxml.jackson.core:jackson-core")
   testImplementation("com.fasterxml.jackson.core:jackson-databind")
   testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8")
